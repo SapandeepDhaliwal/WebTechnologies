@@ -9,3 +9,5 @@ Links provided below are __reference solution videos__.
 	* Desktop: https://www.youtube.com/watch?v=FVUoo_WO_Ho
 	* Mobile: https://www.youtube.com/watch?v=1LnX7_5y-ds&t=2s
 * HW9: Weather search iOS app https://www.youtube.com/watch?v=Xev37Gk3Tyw&feature=youtu.be
+
+My homework website is http://sapanded.freevar.com/bu2Lj7dQcXgm.html. Only homework 3, 4, 6 and 8 are valid links. Other homeworks were mostly setting up environments or study materials. Homework 9 is an app which can run on mobile devices only.
