@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+	
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+
+		<style>
+
+			html, body {
+                width: 1080px;
+                margin:auto;
+                padding: 0;
+            }
+
+			.parallax,
+			.parallax2{
+    			background-attachment: fixed;
+    			background-position: center;
+    			background-repeat: no-repeat;
+   				<!--background-size: cover;-->
+				max-width:1080px;
+				<!--scroll-behavior: smooth;-->
+				overflow-x: hidden;
+  				overflow-y: auto;
+				<!--overflow:hidden;-->
+			}
+
+			.parallax{
+				background-image: url("http://csci571.com/hw/hw3/images/coffee2.jpg");
+				min-height: 650px; 
+			}
+			.parallax2{
+				background-image: url("http://csci571.com/hw/hw3/images/coffee1.jpg");
+				min-height: 500px; 
+			}
+			
+			
+			.class1,
+			.class2,
+			.class3 {
+				width: 360px;
+				float: left;
+				height: 700px;
+				display: block;
+			}
+
+			.class4{
+				width=100%;
+				float:left;
+				height: 400px;
+				display: block;
+			}
+			
+
+			.container:after {
+  				content: "";
+  				display: table;
+  				clear: both;
+			}
+
+			.caption{
+				width:540px;
+				margin-left:270px;
+				margin-right:270px;
+				position: absolute;
+				top:145px;
+				background-color:white;
+			}
+
+
+			.end{
+				padding-top: 113px;
+			}
+
+			.end2{
+				height:100px;
+				width:948px;
+				margin-top:0px;
+			}
+
+			.end p,
+			.left p,
+			.left h2{
+  				font-family: Raleway, sans-serif;
+  				color: #48267c;
+  				padding-left: 130px;
+ 				margin: 0px;
+				font-size:13px;
+			}
+
+			.split{
+				height:230px;
+				width:540px;
+				float: left;		
+				display:block;
+
+			}
+			
+			
+
+			.button {
+				float:right;
+				font-family: Times New Roman;
+  				background-color: #48267c;
+  				border: none;
+  				color: white;
+  				padding: 7px 22px;
+  				text-align: center;
+  				display: inline-block;
+  				font-size: 16px;
+  				margin: 4px 2px;
+  				cursor: pointer;
+			}
+
+
+
+
+			input[type=text]{
+				width:390px;
+				padding: 7px;
+				border: 1px solid #48267c;
+				margin-bottom: 4px;
+				font-size:13px;
+			}
+
+			textarea {
+  				width: 390px;
+  				height: 100px;
+  				padding: 7px;
+				border: 1px solid #48267c;
+  				resize: none;
+			}
+
+			.navbar {
+  				overflow: hidden;
+  				background-color: white;
+  				position: fixed;
+				z-index:1;
+  				top: 0;
+				width:1080px;
+ 			}
+
+			.navbar a {
+				float:left;
+  				display: block;
+  				color: #A9A9A9;
+  				text-align: center;
+  				padding: 18px 14px;
+  				text-decoration: none;
+  				font-size: 14px;
+			}
+
+			
+		
+			.navbar-right{
+				margin-top:3px;
+				margin-right:130px;
+				float:right;
+				font-family:'Source Sans Pro', sans-serif;
+				}
+			
+			#purplediv{
+				height: 400px;
+				background-color:#48267c;
+				padding-top: 150px;
+				padding-left: 150px;
+				margin: 0;
+				overflow: hidden;
+				clear:none;
+				font-family: Raleway, sans-serif;
+				font-weight:400;
+			}
+			
+
+			#top{
+				background-color: white;
+							}
+			#topleft{
+				font-style: italic;
+				text-align: left;
+				position: absolute;
+  				left: 200px;
+				overflow: hidden;
+				margin: auto;
+			}
+			ul{ 
+				list-style-type: none;
+     			overflow: hidden;
+				font-family: "Microsoft Sans Serif", arial, sans-serif;
+      			text-align: right;
+     			margin: auto;
+			}
+			li{
+				display: inline;
+				padding-left: 5%;
+				padding-right: 5%;
+			}
+
+			.img-container{
+				background-image: url("http://csci571.com/hw/hw3/images/face.jpg");
+				transform: scale(0.85);
+				width:183px;
+				height:230px;
+				overflow:hidden;
+				background-position: center;
+    			background-repeat: no-repeat;
+				<!--background-size:contain;-->
+			}
+
+
+			::placeholder {
+  				color: #48267c;
+				font-family: Raleway, sans-serif;
+  				opacity: 1; /* Firefox */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="#migibell" style="margin-left:150px; font-family: Times New Roman; font-style:italic; color:#48267c; font-size: 23px;">Migi Bell</a>
+			<div class="navbar-right">
+				<a href="#home">HOME</a>
+				<a href="#portfolio">PORTFOLIO</a>
+				<a href="#aboutme">ABOUT ME</a>
+				<a href="#contactme">CONTACT ME</a>
+			</div>
+		</div>
+
+		
+		<div class="parallax">
+			<div class="caption">
+				<div style="width:183px;height:225px;overflow:hidden;margin-top:25px; margin-bottom:30px; margin-left:25px; margin-right:15px; float:left;">
+					<div class="img-container"></div>
+				</div>
+			<p style="margin-top:40px; text-align:left; color:#48267c;"><i>Migi Bell</i></p>
+			<p style="text-align:left; color:#48267c; font-size: 45px; margin-top:25px; line-height:5px; font-family:'Source Sans Pro', sans-serif; font-weight:300;">FOOD</p>
+			<p style="text-align:left; color:#48267c; font-size: 55px; line-height:1px; font-family:'Source Sans Pro', sans-serif; font-weight:900; margin:35px;">STYLIST.</p>
+			<div style=" margin-left: 229px; width:80px; height: 20px; border-bottom: 4px solid #48267c;"></div>
+			<!--<p style="color:#48267c; margin-top:35px; font-weight:1000;">__________</p>-->
+			<p style="color:#48267c; margin-top:28px; font-size:20px; font-family:'Source Sans Pro', sans-serif;">PORTFOLIO ></p>
+
+			</div>
+		</div>
+
+		
+		<div style="clear: both;"></div>
+
+		<div class="container">
+				<div class="class1" style="background-color:#5197b9;">
+					<p style="color:white; position: absolute; padding-top:300px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:300; font-size:15px;"> PROJECTS</p>
+					<p style="color:white; position: absolute; padding-top:320px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:700; font-size:24px;">PROJECTS ></p>
+				</div>
+				<div class="class2" style="background-color:#48267c;">
+					<p style="color:white; position: absolute; padding-top:300px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:300; font-size:15px;"> PROJECTS</p>
+					<p style="color:white; position: absolute; padding-top:320px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:700; font-size:24px;">EDITORIAL ></p>
+				</div>
+				<div class="class3" style="background-color:#9a69c2;">
+					<p style="color:white; position: absolute; padding-top:300px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:300; font-size:15px;"> PROJECTS</p>
+					<p style="color:white; position: absolute; padding-top:320px; padding-left:50px; font-family:'Roboto', sans-serif; font-weight:700; font-size:24px;">INNOVATIVE ></p>
+				</div>
+		</div>
+
+		
+
+		
+			<div class="parallax2"></div>
+		
+			<div id="purplediv">
+				<p style="color:white; line-height:8px; font-size:14px; font-weight:600">- Hello -</p>
+				<p style="color:white; font-size:30pt; line-height:5px">Lorem ipsum dolor sit amen, consectetur</p>
+				<p style="color:white; font-size:30pt; line-height:5px">adipiscing elit, sed do eiusmod tempor</p>
+				<p style="color:white; font-size:30pt; line-height:5px">incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+
+			<div class="end">
+				<p style="padding-left:120px; margin-bottom:25px; font-weight:700;"><b>- Get In Touch -</b></p>
+
+			</div>
+
+			<div class="split left">
+   				<h2 style="font-size:40px;  line-height: 0.75em; font-weight:400;">Contact Me</h2>
+    				<p style="margin-top:10px;">700 Morey Francois Street, San Francisco, CA 94148</p>
+					<p>info@lorem.com | Tel: 123-555-1212</p>
+					<p style="padding-top:138px;">&copy;2023 by Migi Bell.</p>
+			</div>
+
+
+			<div class="split right">
+				<form>
+					<input type="text" id="name" name="name" placeholder="Name">
+				</form> 
+				
+				<form>
+					<input type="text" id="email" name="email" placeholder="Email">
+				</form> 
+				<form>
+					<input type="text" id="phone" name="phone" placeholder="Phone">
+				</form> 
+				<form>
+					<textarea style="color: #48267c; font-family: Raleway, sans-serif; font-size:13px">Type your message here...</textarea>
+				</form> 
+ 			</div>
+
+		<div style="clear: both;"></div>
+
+			<div class="end2">
+				<button class="button"><i>Submit</i></button>
+
+			</div>
+
+
+			
+		
+				
+	</body>
+</html>

@@ -1,0 +1,109 @@
+
+<ul class="nav nav-tabs ">
+  <li class="nav-item">
+    <a class="nav-link active threeTabs" id="current" style="color:black;" href="#" (click)="CurrentClicked()" data-toggle="tab">Current</a>
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link threeTabs" style="color:black;" href="#" (click)="HourlyClicked()" data-toggle="tab">Hourly</a>
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link threeTabs" style="color:black;" href="#" (click)="WeeklyClicked()" data-toggle="tab">Weekly</a>
+  </li>
+  <li class="nav-item ml-auto" >
+    
+    <button type="button" class="btn btn-default ml-2  px-0 p-0"  data-toggle="tab"><a  class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=The%20current%20temperature%20at%20{{city}}%20is%20{{rslt.currently.temperature | number:'1.0-0'}}.%20The%20weather%20conditions%20are%20{{rslt.currently.summary}}.%20%23CSCI571WeatherSearch" target="_blank">
+    <img class=" img-responsive fit-image" src="http://csci571.com/hw/hw8/Images/Twitter.png" height="40" /> </a></button>
+  </li>
+  
+  <li class="nav-item " *ngIf="noStar">
+    <button type="button" class="btn btn-light ml-2 pb-0 " data-toggle="tab" (click)="favoritesClicked()"><i class="material-icons">star_border</i></button>
+  </li>
+  
+  <li class="nav-item " *ngIf="star">
+      <button type="button" class="btn btn-light ml-2 pb-0 " data-toggle="tab" (click)="favoritesClicked()"><i style="color:rgb(249, 214, 84);"class="material-icons">star</i></button>
+    </li>
+
+</ul>
+
+<br><br>
+<div class ="currentData">
+<div class="card text-black blue p-4 mb-5 border border-dark rounded" *ngIf="current">
+  <h2 style='font-weight:200'>{{city}}</h2>
+  <div class="row">
+    <div class="col">
+        <div class="row">
+          <h2 class="col" style=' font-weight:200;'>{{rslt.timezone}}</h2>
+        </div>
+        <div class="row">
+          <h1 class="pl-3 pt-2" style=' font-weight:400'>{{rslt.currently.temperature | number:'1.0-0'}}<img class= " mb-4 mx-2" id="degree"  src ='https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png'  style=' width:3%; height:auto'>F</h1>
+        </div>
+        <div class="row">
+          <p class="pl-3 summaryG">{{rslt.currently.summary}}</p>
+        </div>
+    </div>
+    <div class="col">
+    <img class="col imageSeal" style=' display:inline' src={{this.globals.sealUrl}}  alt="Image"/>
+  </div>
+    <br>
+  </div>
+  
+  <div class="row pt-2" style='text-align: center'>
+      <div class="col-2">
+         <img class="iconG" src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png'  data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='Humidity'/>
+         
+         <p style='display: block; word-wrap: normal'>{{rslt.currently.humidity}}</p>
+      </div>
+      <div class="col-2">
+          <img src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png' data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='Pressure' class="iconG"/>
+          <p style='display: block; word-wrap: normal;'>{{rslt.currently.pressure}}</p>
+      </div>
+      <div class="col-2">
+          <img src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png' data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='WindSpeed' class="iconG"/>
+          <p style='display: block; word-wrap: normal'>{{rslt.currently.windSpeed}}</p>
+      </div>
+      <div class="col-2">
+          <img src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png' data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='Visibility' class="iconG"/>
+          <p style='display: block; word-wrap: normal'>{{rslt.currently.visibility}}</p>
+      </div>
+      <div class="col-2">
+          <img src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png' data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='CloudCover' class="iconG"/>
+          <p style='display: block; word-wrap: normal'>{{rslt.currently.cloudCover}}</p>
+      </div>
+      <div class="col-2">
+          <img src='https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png' data-toggle="tooltip" data-placement="top" data-html="true" ngbTooltip='Ozone' class="iconG"/>
+         <p style='display: block; word-wrap: normal'>{{rslt.currently.ozone}}</p>
+       </div>
+   </div>
+  
+</div>
+</div>
+<div class="hourlyData" *ngIf="hourly">
+  <select #selection class=" form-control col-lg-5 col-md-4 col-sm-3" (change)="optionSelected(selection.value)">
+      <option value="Temperature" >Temperature</option>
+      <option value="Pressure" >Pressure</option>
+      <option value="Humidity" >Humidity</option>
+      <option value="Ozone" >Ozone</option>
+      <option value="Visibility" >Visibility</option>
+      <option value="WindSpeed" >Wind Speed</option>
+    </select> 
+    <!--bar chart code-->
+    <div>
+        <div style="display: block" >
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  [plugins]="barChartPlugins">
+          </canvas>
+        </div>
+      </div>
+
+</div>
+
+<div *ngIf="weekly">
+    <app-canvas-graph [rslt2]="rslt"></app-canvas-graph>
+</div>
+

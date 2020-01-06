@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+	<script>
+		function viewJSON(what){
+			var URL = what.URL.value;
+			
+
+			function loadJSON(url){
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.open("GET",url,false);
+				try{
+				xmlhttp.send();
+				}catch(e){
+					alert("File name does not exist!");
+					return null;
+				}
+				
+				try{
+					jsonObj = JSON.parse(xmlhttp.responseText);
+				}catch(e){
+					alert("File name must be entered!");
+					return null;
+				}
+				return jsonObj;
+				
+				
+				
+			}
+			
+			jsonObj = loadJSON(URL);
+			jsonObj.onload = generateHTML(jsonObj);
+			flag = jsonObj.onload;
+			
+			hWin = window.open("","Assignment4","scrollbars=yes,height=800,width=1200");
+
+			hWin.document.write(html_text);
+			
+			hWin.document.close();
+
+		}
+
+
+		function generateHTML(jsonObj){
+			var flag = true;
+			if(JSON.stringify(jsonObj) == JSON.stringify({})){
+				window.alert("JSON file is empty!");
+				flag = false;
+			}
+			else if(typeof(jsonObj.Mainline.Table.Row) === 'undefined'){
+				window.alert("No data to display");
+				flag = false;
+			}
+			else{
+			root = jsonObj.DocumentElemeny;
+			html_text = "<html><head><title>Largest Manufacturers by Production(2017)</title></head></bo"+"dy>";
+			html_text+="<table border='2'>";
+			html_text+="<tbo"+"dy>";
+			html_text+="<tr>";
+			var cars_header = jsonObj.Mainline.Table.Header.Data;
+			var cars_header_loop = Object.keys(cars_header);
+			for(i=0;i<cars_header_loop.length;i++){
+				header = cars_header[i];
+				html_text+="<th>"+header+"</th>";
+			}
+			html_text+="</tr>";
+			}
+			var cars_data = jsonObj.Mainline.Table.Row;
+			for(i=0;i<cars_data.length;i++){
+				html_text+="<tr>";
+				console.log(cars_data[i].Rank);
+				html_text+="<td>"+cars_data[i].Rank+"</td>";
+				html_text+="<td>"+cars_data[i].Group+"</td>";
+				html_text+="<td><ul>";
+			
+				if(cars_data[i].Hubs.Hub.length == 0){
+					html_text+="</ul</td>";
+				}
+				else{
+					for(j=0;j<cars_data[i].Hubs.Hub.length;j++){
+						if(j == "0"){
+							html_text+="<li><b>"+cars_data[i].Hubs.Hub[j]+"</b></li>";
+						}
+						else{
+							html_text+="<li>"+cars_data[i].Hubs.Hub[j]+"</li>";
+						}
+					}
+					html_text+="</ul></td>";
+				}
+				html_text+="<td>"+cars_data[i].Vehicles+"</td>";
+				html_text+="<td><a href='"+cars_data[i].HomePage+"'>"+cars_data[i].HomePage+"</a></td>";
+				html_text+="<td><img src='"+cars_data[i].Logo+"'width=225 height=225'></td>";
+				
+				html_text+="</tr>";
+			}
+			html_text+="</tbo"+"dy>";
+			html_text+="</table>";
+			html_text+="</bo"+"dy></html>";
+		
+	}
+
+	</script>
+</head>
+
+<body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<h2 style = "text-align: center;">Enter URL for largest manufacturers by production (2017) List JSON File</h2>
+		<form name="myform" method="POST" id="location">
+			<input type="text" name="URL" required/>
+			<br><br>
+			<input type="button" name="Submit" value="Submit Query" onclick="viewJSON(this.form)"/>
+		</form>
+	</center>
+</body>
